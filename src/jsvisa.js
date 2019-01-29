@@ -81,28 +81,28 @@ class Visa
         }
 
         console.log("Open RM");
-        viError = visa32.viOpenDefaultRM(session);
+        viError = this.visa.viOpenDefaultRM(session);
         console.log(viError);
 
         //var this.visaAdress;
         //this.visaAdress = 'GPIB0::22::INSTR'
 
         console.log("ADDR : " + this.visaAdress);
-        viError = visa32.viOpen(session.deref(), this.visaAdress, 0, 0, pSession);
+        viError = this.visa.viOpen(session.deref(), this.visaAdress, 0, 0, pSession);
 
         console.log(viError);
 
         //var queryString;
         //queryString = "*IDN?";
-        viError = visa32.viPrintf(pSession.deref(), queryString + "\n");
+        viError = this.visa.viPrintf(pSession.deref(), queryString + "\n");
 
         console.log("SEND : " + queryString);
 
-        viError = visa32.viScanf(pSession.deref(), "%s", replyBuff.buffer);
+        viError = this.visa.viScanf(pSession.deref(), "%s", replyBuff.buffer);
         console.log(viError);
 
         console.log("Close session.");
-        visa32.viClose(pSession.deref());
+        this.visa.viClose(pSession.deref());
 
         // make reply string
         counter = 0;
