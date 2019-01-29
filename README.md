@@ -1,4 +1,7 @@
-# visa32test.js
+# jvisa
+## Javascript Virtual Instrument Software Architecture library
+
+*This is a fork of 7m4mom/visa32test and an attempt at completed/improving his work.
 
  VISA32TEST.JS
  
